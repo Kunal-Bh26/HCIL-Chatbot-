@@ -675,7 +675,7 @@ defaults = {
     'messages': [],
     'chat_ended': False,
     'feedback_request': False,
-    'quick_replies': ["🔐 Reset Password", "🌐 VPN Issues", "💻 Software Install", "🔧 Hardware Problems"],
+    'quick_replies': ["Reset Password", "VPN Issues", "Software Install", "Hardware Problems"],
     'show_typing': False,
     'chat_started': False,
     'show_quick_replies': False
@@ -709,13 +709,13 @@ if not st.session_state.chat_started:
     # Start Chat Button
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        if st.button("🚀 Start Conversation", key="start_chat_button", use_container_width=True):
+        if st.button("🚀 Start Chat", key="start_chat_button", use_container_width=True):
             st.session_state.chat_started = True
             st.session_state.show_quick_replies = True
             welcome_messages = [
-                "🎯 <b>Konnichiwa!</b> Welcome to HCIL's Elite AI Support System. How may I assist you today?",
-                "🌟 <b>Welcome!</b> I'm your AI assistant, ready to solve any IT challenge!",
-                "💫 <b>Hello!</b> Let's get your IT issues resolved quickly and efficiently!"
+                "<b>Konnichiwa!</b> Welcome to HCIL's AI Helpdesk Support System. How may I assist you today?",
+                "<b>Welcome!</b> I'm your AI assistant, ready to solve any IT challenge!",
+                "<b>Hello!</b> Let's get your IT issues resolved quickly and efficiently!"
             ]
             st.session_state.messages = [{
                 "role": "bot",
@@ -794,10 +794,10 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
         
         feedback_options = [
             ("😊 Perfect", "Excellent! I'm here if you need anything else! ✨"),
-            ("👍 Good", "Great! Feel free to ask more questions! 🚀"),
-            ("🤔 Unclear", "Let me try to explain differently. Could you provide more details? 💭"),
-            ("👎 Not Helpful", "I apologize. Let me connect you with better resources. 🔄"),
-            ("💬 More Help", "Sure! What else would you like to know? 💡")
+            ("👍 Good", "Great! Feel free to ask more questions!🚀"),
+            ("🤔 Unclear", "Let me try to explain differently. Could you provide more details?💭"),
+            ("👎 Not Helpful", "I apologise. Let me connect you with better resources.🔄"),
+            ("💬 More Help", "Sure! What else would you like to know?💡")
         ]
         
         for col, (btn_text, response) in zip([col1, col2, col3, col4, col5], feedback_options):
@@ -837,9 +837,9 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
             
             if user_input_clean in ["bye", "quit", "exit", "end"]:
                 farewell_messages = [
-                    "Thank you for using HCIL IT Support! <b>Sayonara!</b> 🌟 Have an amazing day!",
+                    "Thank you for using HCIL IT Support! <b>Mata ne!</b> 🌟 Have an amazing day!",
                     "It was great helping you! <b>Mata ne!</b> ✨ See you next time!",
-                    "Thanks for choosing HCIL! <b>Goodbye!</b> 🚀 Stay awesome!"
+                    "Thanks for choosing HCIL Chatbot! <b>Goodbye!</b> 🚀 Stay awesome!"
                 ]
                 st.session_state.messages.append({
                     "role": "bot", 
@@ -857,7 +857,7 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
 st.markdown("""
 <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
     <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.85rem;">
-        Powered by Advanced AI | HCIL IT Support © 2024
+        Powered by AI | HCIL IT Support © 2025 ~ by Kunal Bhardwaj 
     </p>
 </div>
 """, unsafe_allow_html=True)
