@@ -26,247 +26,227 @@ KNOWLEDGE_BASE_PATH = 'dataset.xlsx'
 
 st.markdown("""
 <style>
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
-
-/* CSS Variables for Theme */
-:root {
-  /* Red gradients */
-  --primary-gradient: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
-  --secondary-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-
-  /* Subtle red-tinted glassmorphism (still very dark) */
-  --glass-bg: rgba(229, 57, 53, 0.06);
-  --glass-border: rgba(229, 57, 53, 0.25);
-
-  /* Red neon glow */
-  --neon-glow: 0 0 20px rgba(229, 57, 53, 0.5);
-
-  /* Text on black */
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.85);
-}
-
-/* Global Reset and Dark Theme */
-html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
-    background: #000000 !important;
-    color: var(--text-primary) !important;
-    font-family: 'Inter', sans-serif !important;
-    overflow-x: hidden;
-}
-
-/* Animated Background */
-.stApp {
-    background: 
-        radial-gradient(ellipse at top left, rgba(229, 57, 53, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(191, 18, 18, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at center, rgba(239, 68, 68, 0.1) 0%, transparent 60%),
-        #000000 !important;
-    position: relative;
-    min-height: 100vh;
-}
-
-/* Animated Particles Background */
-.stApp::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.3) 0%, transparent 2%),
-        radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.3) 0%, transparent 2%),
-        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.3) 0%, transparent 2%);
-    background-size: 200% 200%;
-    animation: floatParticles 20s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes floatParticles {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(-20px, -30px) rotate(120deg); }
-    66% { transform: translate(20px, -10px) rotate(240deg); }
-}
-
-/* Main Container with Glassmorphism */
-.main {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px !important;
-    padding: 2.5rem !important;
-    max-width: 800px !important;
-    margin: 2rem auto;
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 100px rgba(229, 57, 53, 0.1);
-    position: relative;
-    z-index: 1;
-    animation: mainFadeIn 1s ease-out;
-}
-
-@keyframes mainFadeIn {
-    from { opacity: 0; transform: translateY(30px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Sidebar Styling */
-.stSidebar > div:first-child {
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Sidebar Title with Red Neon Gradient */
-.sidebar-title {
-    font-size: 4rem;
-    font-weight: 900;
-    text-align: center;
-    margin: 1.5rem 0;
-    background: linear-gradient(45deg, #b71c1c, #e53935, #ef4444, #f87171);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease infinite;
-    filter: drop-shadow(0 0 30px rgba(229, 57, 53, 0.5));
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Main Title Enhancement */
-.elegant-heading {
-    color:#fff !important;
-    text-shadow: 0 0 18px rgba(255,255,255,0.12);
-    margin-top: 0 !important;
-    font-size: 3.5rem !important;
-    font-weight: 800;
-    text-align: center;
-    margin: 2rem 0 3rem 0 !important;
-    background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    animation: titlePulse 2s ease-in-out infinite;
-    letter-spacing: -0.02em;
-}
-
-@keyframes titlePulse {
-    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(229, 57, 53, 0.5)); }
-    50% { filter: brightness(1.2) drop-shadow(0 0 40px rgba(229, 57, 53, 0.8)); }
-}
-
-/* Start Chat Button */
-.start-chat-btn {
-    background: var(--primary-gradient) !important;
+/* Ensure the very root HTML and body are black */
+html, body {
+    background-color: #000000 !important; /* Strict background color */
     color: white !important;
-    border-radius: 60px !important;
-    padding: 1.2rem 3.5rem !important;
-    font-size: 1.2rem !important;
-    font-weight: 600 !important;
-    border: none !important;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    box-shadow: 0 10px 30px rgba(229, 57, 53, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
+/* Target Streamlit's main content area */
+.stApp {
+    background-color: #000000 !important; /* Strict background color for the app container */
+}
+
+/* Your existing .main style, updated to the desired background */
+.main {
+    background: #000000 !important; /* Use your desired dark background here */
+    border-radius: 20px !important;
+    padding: 3.5rem !important;
+    max-width: 640px !important;
+    margin: 2.5rem auto;
+}
+.stSidebar > div:first-child {
+    background-color: #1F1F1F !important;
+    border-right: 2px solid white;
+}
+
+/* --- BUTTON STYLING FIXES --- */
+
+/* Style only the Start Chat button */
+.start-chat-btn {
+    background: linear-gradient(90deg, #e53935 0%, #b71c1c 100%) !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 1.5rem 3rem !important;
+    font-size: 1.4rem !important;
+    border: 3px solid #fff !important;
+    font-weight: bold !important;
+    transition: transform 0.2s !important;
+    min-width: 200px !important;
+    margin: auto auto !important;
+    display: block !important;
+}
+#stBaseButton-secondary{
+margin : auto !important;
+}
+
+
 .start-chat-btn:hover {
-    transform: translateY(-3px) scale(1.05) !important;
-    box-shadow: 0 20px 40px rgba(229, 57, 53, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-.start-chat-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 0; height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-.start-chat-btn:hover::before {
-    width: 300px; height: 300px;
+    transform: scale(1.08) !important;
+    color: white !important;
 }
 
-/* Chat Bubbles */
-.user-bubble {
-    background: linear-gradient(135deg, rgba(229, 57, 53, 0.9) 0%, rgba(183, 28, 28, 0.9) 100%);
-    color: white;
-    margin-left: auto;
-    box-shadow: 0 8px 24px rgba(229, 57, 53, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
-.bot-bubble {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-    color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
 
-/* Avatar */
-.user-avatar { background: var(--primary-gradient); }
-.bot-avatar  { background: linear-gradient(135deg, #ef4444 0%, #b71c1c 100%); }
-
-/* Quick Reply & Feedback Buttons */
+/* 2. QUICK REPLY & FEEDBACK BUTTONS: New rule to apply your desired style */
 .quick-reply-buttons .stButton > button,
 .feedback-buttons .stButton > button {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 50px !important;
-    padding: 0.6rem 1.5rem !important;
-    margin: 0.3rem !important;
+    display: inline-block !important;
+    background: #fff !important;
+    color: #e53935 !important;
+    border-radius: 18px !important;
+    padding: 0.5rem 1.1rem !important;
+    margin: 0.15rem !important;
+    cursor: pointer !important;
+    font-size: 0.98rem !important;
+    border: 1.5px solid #e53935 !important;
     font-weight: 500 !important;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease !important;
+    transition: background 0.2s, color 0.2s !important;
+    width: auto !important;
 }
+
 .quick-reply-buttons .stButton > button:hover,
 .feedback-buttons .stButton > button:hover {
-    transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 8px 20px rgba(229,57,53,0.4) !important;
-    border-color: rgba(229,57,53,0.5) !important;
+    background: #e53935 !important;
+    color: #fff !important;
 }
 
-/* Input Field */
-.stTextInput > div > div > input {
-    background: rgba(255,255,255,0.03) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 15px !important;
-    color: var(--text-primary) !important;
-    padding: 0.8rem 1.2rem !important;
-    font-size: 1rem !important;
-    backdrop-filter: blur(10px);
+/* --- END OF BUTTON STYLING FIXES --- */
+
+
+.chat-bubble {
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    max-width: 75%;
+    animation: fadeInUp 0.3s;
+    position: relative;
+    word-break: break-word;
+    font-size: 1.08rem;
+    display: flex;
+    align-items: center;
 }
-.stTextInput > div > div > input:focus {
-    border-color: rgba(229,57,53,0.5) !important;
-    box-shadow: 0 0 20px rgba(229,57,53,0.3) !important;
+.user-bubble {
+    background: #fff;
+    color: #111;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+    border: 1.5px solid #e53935;
+}
+.bot-bubble {
+    background: linear-gradient(90deg, #e53935 0%, #b71c1c 100%);
+    color: #fff;
+    align-self: flex-start;
+    margin-right: auto;
+    margin-left: 0;
+    border: 1.5px solid #fff;
+}
+.avatar {
+    width: 38px; height: 38px; border-radius: 75%; margin: 0 10px;
+    background: #3d3d3d;
+    box-shadow: 0 2px 8px rgba(229,57,53,0.12);
+    font-size: 1.7rem;
+    text-align: center;
+    line-height: 38px;
+    border: 2px solid #ff0000;
+    display: flex; align-items: center; justify-content: center;
+}
+.user-row {
+    display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-end;
+}
+.bot-row {
+    display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
+}
+.input-bar {
+    background: transparent !important;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(229,57,53,0.12);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+}
+.input-bar input {
+    background: transparent !important;
+    border: 3px solid #ffffff !important;
+    color: #fff;
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    outline: none;
+    font-size: 1rem;
+}
+.send-btn {
+    background: linear-gradient(90deg, #e53935 0%, #b71c1c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 46px !important;
+    height: 38px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center;
+}
+.send-btn:hover {
+    background: #fff;
+    color: #e53935;
+    border: 1.5px solid #ff00;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, rgba(229,57,53,0.5), rgba(191,18,18,0.5));
-    border-radius: 10px;
+/* Enhanced Sidebar Title */
+.sidebar-title {
+    font-size: 5.5rem;
+    color: #EE4B2B;
+    font-weight: 900;
+    text-align: center;
+    margin: 0.5rem 0 1.5rem 0;
+    letter-spacing: 0.05em;
+    width: 100%;
+    line-height: 1.2;
+    animation: rotate3D 5s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    text-shadow:
+        0 0 5px rgba(238, 75, 43, 0.5),
+        0 0 10px rgba(238, 75, 43, 0.4),
+        0 0 15px rgba(238, 75, 43, 0.3),
+        1px 1px 2px rgba(0,0,0,0.8);
 }
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, rgba(229,57,53,0.7), rgba(191,18,18,0.7));
+
+@keyframes rotate3D {
+    0% { transform: rotateY(0deg) scale(1); }
+    25% { transform: rotateY(90deg) scale(1.05); }
+    50% { transform: rotateY(180deg) scale(1); }
+    75% { transform: rotateY(270deg) scale(1.05); }
+    100% { transform: rotateY(360deg) scale(1); }
+}
+
+/* Main Chatbot Title Enhancement */
+.elegant-heading {
+    font-size: 4.5rem !important;
+    font-weight: 900;
+    text-align: center;
+    margin-top: -40px !important;
+    color: #ffffff;
+    animation: fadeInUp 2.0s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.transparent-spacer1 {
+height: 150px;           /* Adjust the vertical space */
+background: transparent;    /* Ensures it's see-through */
+}
+.transparent-spacer2 {
+height: 70px;           /* Adjust the vertical space */
+background: transparent;    /* Ensures it's see-through */
+}
+.typing-indicator {
+    display: flex; align-items: center; margin-bottom: 1.1rem;
+}
+.typing-dots span {
+    height: 10px; width: 10px; margin: 0 2px;
+    background: #e53935; border-radius: 25%; display: inline-block;
+    animation: blink 1.2s infinite both;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0.2; }
+    40% { opacity: 1; }
 }
 </style>
 """, unsafe_allow_html=True)
