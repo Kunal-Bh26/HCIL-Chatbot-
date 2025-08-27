@@ -90,22 +90,183 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     66% { transform: translate(20px, -10px) rotate(240deg); }
 }
 
-/* ... keep the rest of your CSS rules here (titles, chat bubbles, buttons, etc.) ... */
-
-/* Status Indicator */
-.status-indicator {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #4ade80;
-    border-radius: 50%;
-    animation: statusPulse 2s ease-in-out infinite;
-    margin-left: 8px;
+/* Main Container with Glassmorphism */
+.main {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px !important;
+    padding: 2.5rem !important;
+    max-width: 800px !important;
+    margin: 2rem auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 100px rgba(229, 57, 53, 0.1);
+    position: relative;
+    z-index: 1;
+    animation: mainFadeIn 1s ease-out;
 }
 
-@keyframes statusPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+@keyframes mainFadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Sidebar Styling */
+.stSidebar > div:first-child {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Title with Red Neon Gradient */
+.sidebar-title {
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 1.5rem 0;
+    background: linear-gradient(45deg, #b71c1c, #e53935, #ef4444, #f87171);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    filter: drop-shadow(0 0 30px rgba(229, 57, 53, 0.5));
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main Title Enhancement */
+.elegant-heading {
+    color:#fff !important;
+    text-shadow: 0 0 18px rgba(255,255,255,0.12);
+    margin-top: 0 !important;
+    font-size: 3.5rem !important;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem 0 3rem 0 !important;
+    background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    animation: titlePulse 2s ease-in-out infinite;
+    letter-spacing: -0.02em;
+}
+
+@keyframes titlePulse {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(229, 57, 53, 0.5)); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 40px rgba(229, 57, 53, 0.8)); }
+}
+
+/* Start Chat Button */
+.start-chat-btn {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+    border-radius: 60px !important;
+    padding: 1.2rem 3.5rem !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 10px 30px rgba(229, 57, 53, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.start-chat-btn:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 20px 40px rgba(229, 57, 53, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.start-chat-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+.start-chat-btn:hover::before {
+    width: 300px; height: 300px;
+}
+
+/* Chat Bubbles */
+.user-bubble {
+    background: linear-gradient(135deg, rgba(229, 57, 53, 0.9) 0%, rgba(183, 28, 28, 0.9) 100%);
+    color: white;
+    margin-left: auto;
+    box-shadow: 0 8px 24px rgba(229, 57, 53, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+.bot-bubble {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Avatar */
+.user-avatar { background: var(--primary-gradient); }
+.bot-avatar  { background: linear-gradient(135deg, #ef4444 0%, #b71c1c 100%); }
+
+/* Quick Reply & Feedback Buttons */
+.quick-reply-buttons .stButton > button,
+.feedback-buttons .stButton > button {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 50px !important;
+    padding: 0.6rem 1.5rem !important;
+    margin: 0.3rem !important;
+    font-weight: 500 !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease !important;
+}
+.quick-reply-buttons .stButton > button:hover,
+.feedback-buttons .stButton > button:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 8px 20px rgba(229,57,53,0.4) !important;
+    border-color: rgba(229,57,53,0.5) !important;
+}
+
+/* Input Field */
+.stTextInput > div > div > input {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    border-radius: 15px !important;
+    color: var(--text-primary) !important;
+    padding: 0.8rem 1.2rem !important;
+    font-size: 1rem !important;
+    backdrop-filter: blur(10px);
+}
+.stTextInput > div > div > input:focus {
+    border-color: rgba(229,57,53,0.5) !important;
+    box-shadow: 0 0 20px rgba(229,57,53,0.3) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(229,57,53,0.5), rgba(191,18,18,0.5));
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(229,57,53,0.7), rgba(191,18,18,0.7));
 }
 </style>
 """, unsafe_allow_html=True)
