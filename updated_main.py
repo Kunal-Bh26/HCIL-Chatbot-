@@ -10,32 +10,6 @@ from fuzzywuzzy import process
 import random
 from datetime import datetime
 
-import streamlit.components.v1 as components
-
-def toggle_sidebar():
-    components.html("""
-    <script>
-    const root = window.parent.document;
-    // Try a few stable selectors across Streamlit versions:
-    const trySelectors = [
-      '[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"]',
-      'button[kind="header"]',
-      'button[aria-label="Toggle sidebar"]',
-      '[data-testid="collapsedControl"] button'
-    ];
-    for (const sel of trySelectors){
-      const el = root.querySelector(sel);
-      if (el){ el.click(); break; }
-    }
-    </script>
-    """, height=0, width=0)
-
-# Floating toggle (visible even when sidebar is collapsed)
-col_toggle, _, _ = st.columns([1, 8, 1])
-with col_toggle:
-    if st.button("☰ Sidebar", key="toggle_sidebar_btn"):
-        toggle_sidebar()
-
 # -------------------------------
 # Page Configuration
 # -------------------------------
