@@ -31,8 +31,8 @@ KNOWLEDGE_BASE_PATH = 'dataset.xlsx'
 /* CSS Variables for Theme */
 :root {
   /* Red gradients */
-  --primary-gradient: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
-  --secondary-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  --primary-gradient: linear-gradient(135 deg, #e53935 0%, #b71c1c 100%);
+  --secondary-gradient: linear-gradient(135 deg, #ef4444 0%, #b91c1c 100%);
 
   /* Subtle red-tinted glassmorphism (still very dark) */
   --glass-bg: rgba(229, 57, 53, 0.06);
