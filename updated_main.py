@@ -8,6 +8,7 @@ import re
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 import random
+from pathlib import Path
 from datetime import datetime
 
 # -------------------------------
@@ -29,9 +30,8 @@ def local_css(file_name):
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text()}</style>", unsafe_allow_html=True)
     else:
-        st.error("❌ CSS file not found!")
+        st.error(f"❌ CSS file not found at {file_name}")
 
-local_css("styles.css")
 
 # -------------------------------
 # Model Loading (Cached)
