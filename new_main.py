@@ -10,6 +10,16 @@ from fuzzywuzzy import process
 import random
 from datetime import datetime
 
+# -------------------------------
+# Page Configuration
+# -------------------------------
+st.set_page_config(
+    page_title="HCIL IT Helpdesk Chat-Bot",
+    page_icon="🤖",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
+
 # --- Configuration for Pre-loaded Knowledge Base ---
 KNOWLEDGE_BASE_PATH = 'dataset.xlsx'
 
@@ -493,15 +503,6 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 </style>
 """, unsafe_allow_html=True)
 
-# -------------------------------
-# Page Configuration
-# -------------------------------
-st.set_page_config(
-    page_title="HCIL IT Helpdesk | Elite AI Assistant",
-    page_icon="🚀",
-    layout="centered",
-    initial_sidebar_state="auto"
-)
 
 # -------------------------------
 # Model Loading (Cached)
