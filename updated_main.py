@@ -24,15 +24,92 @@ st.set_page_config(
 # --- Configuration for Pre-loaded Knowledge Base ---
 KNOWLEDGE_BASE_PATH = 'dataset.xlsx'
 
-# Load external CSS
-def local_css(file_name):
-    css_path = Path(file_name)
-    if css_path.exists():
-        st.markdown(f"<style>{css_path.read_text()}</style>", unsafe_allow_html=True)
-    else:
-        st.error(f"❌ CSS file not found at {file_name}")
+st.markdown("""
+<style>
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
-local_css("styles.css")
+/* CSS Variables for Theme */
+:root {
+  /* Red gradients */
+  --primary-gradient: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+  --secondary-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+
+  /* Subtle red-tinted glassmorphism (still very dark) */
+  --glass-bg: rgba(229, 57, 53, 0.06);
+  --glass-border: rgba(229, 57, 53, 0.25);
+
+  /* Red neon glow */
+  --neon-glow: 0 0 20px rgba(229, 57, 53, 0.5);
+
+  /* Text on black */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+}
+
+/* Global Reset and Dark Theme */
+html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+    background: #000000 !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+.stApp {
+    background: 
+        radial-gradient(ellipse at top left, rgba(229, 57, 53, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(191, 18, 18, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at center, rgba(239, 68, 68, 0.1) 0%, transparent 60%),
+        #000000 !important;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Animated Particles Background */
+.stApp::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.3) 0%, transparent 2%),
+        radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.3) 0%, transparent 2%),
+        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.3) 0%, transparent 2%);
+    background-size: 200% 200%;
+    animation: floatParticles 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatParticles {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-20px, -30px) rotate(120deg); }
+    66% { transform: translate(20px, -10px) rotate(240deg); }
+}
+
+/* ... keep the rest of your CSS rules here (titles, chat bubbles, buttons, etc.) ... */
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+    margin-left: 8px;
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+}
+</style>
+""", unsafe_allow_html=True)
+
 # -------------------------------
 # Model Loading (Cached)
 # -------------------------------
