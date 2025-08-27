@@ -697,7 +697,7 @@ for key, val in defaults.items():
 # Main Title with Animation
 st.markdown("""
 <h1 class='elegant-heading'>
-    <span class="loading-wave">🚀</span>🤖 HCIL IT Helpdesk AI Assistant
+    <span class="loading-wave">🤖</span>HCIL IT Helpdesk AI Assistant
 </h1>
 """, unsafe_allow_html=True)
 
