@@ -10,6 +10,32 @@ from fuzzywuzzy import process
 import random
 from datetime import datetime
 
+import streamlit.components.v1 as components
+
+def toggle_sidebar():
+    components.html("""
+    <script>
+    const root = window.parent.document;
+    // Try a few stable selectors across Streamlit versions:
+    const trySelectors = [
+      '[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"]',
+      'button[kind="header"]',
+      'button[aria-label="Toggle sidebar"]',
+      '[data-testid="collapsedControl"] button'
+    ];
+    for (const sel of trySelectors){
+      const el = root.querySelector(sel);
+      if (el){ el.click(); break; }
+    }
+    </script>
+    """, height=0, width=0)
+
+# Floating toggle (visible even when sidebar is collapsed)
+col_toggle, _, _ = st.columns([1, 8, 1])
+with col_toggle:
+    if st.button("☰ Sidebar", key="toggle_sidebar_btn"):
+        toggle_sidebar()
+
 # -------------------------------
 # Page Configuration
 # -------------------------------
@@ -31,13 +57,20 @@ st.markdown("""
 
 /* CSS Variables for Theme */
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --neon-glow: 0 0 20px rgba(102, 126, 234, 0.5);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
+  /* Red gradients */
+  --primary-gradient: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+  --secondary-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+
+  /* Subtle red-tinted glassmorphism (still very dark) */
+  --glass-bg: rgba(229, 57, 53, 0.06);
+  --glass-border: rgba(229, 57, 53, 0.25);
+
+  /* Red neon glow */
+  --neon-glow: 0 0 20px rgba(229, 57, 53, 0.5);
+
+  /* Text on black */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
 }
 
 /* Global Reset and Dark Theme */
@@ -146,6 +179,9 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 
 /* Main Title Enhancement */
 .elegant-heading {
+    color:#fff !important;
+    text-shadow: 0 0 18px rgba(255,255,255,0.12);
+    margin-top: 0 !important;
     font-size: 3.5rem !important;
     font-weight: 800;
     text-align: center;
@@ -657,7 +693,7 @@ with st.sidebar:
         """, unsafe_allow_html=True)
     
     st.markdown("---")
-    st.info("💡 **Pro Tip:** Type 'bye' to end the conversation")
+    st.info("💡**Pro Tip:** Type 'bye' to end the conversation")
     
     # Current Time
     current_time = datetime.now().strftime("%I:%M %p")
@@ -687,7 +723,7 @@ for key, val in defaults.items():
 # Main Title with Animation
 st.markdown("""
 <h1 class='elegant-heading'>
-    <span class="loading-wave">🚀</span> HCIL IT Helpdesk AI Assistant
+    <span class="loading-wave">🚀</span>🤖 HCIL IT Helpdesk AI Assistant
 </h1>
 """, unsafe_allow_html=True)
 
