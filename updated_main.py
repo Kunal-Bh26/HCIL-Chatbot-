@@ -694,7 +694,6 @@ st.markdown("""
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
-        margin-lift: 5rem;
     ">🤖</span>
     <h1 class='elegant-heading' style="margin: 0rem; display: inline-block;">
         HCIL IT Helpdesk AI Assistant</h1>
