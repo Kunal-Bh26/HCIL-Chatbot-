@@ -685,7 +685,7 @@ for key, val in defaults.items():
 
 # Main Title with Animation
 st.markdown("""
-<div style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: top; align-items: top;">
     <span class="loading-wave" style="
         font-size: 5.5rem; 
         background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
@@ -694,7 +694,7 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         color: transparent;
     ">🤖</span>
-    <h1 class='elegant-heading' style="margin-left: -1.2rem;">HCIL IT Helpdesk AI Assistant</h1> 
+    <h1 class='elegant-heading' style="margin-left: -5.2rem;">HCIL IT Helpdesk AI Assistant</h1> 
 </div>
 """, unsafe_allow_html=True)
 
