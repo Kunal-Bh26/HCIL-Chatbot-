@@ -724,8 +724,8 @@ for key, val in defaults.items():
 
 # Main Title with Animation
 st.markdown("""
-<div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
-    <span class="loading-wave" style="
+<div style="display: flex; justify-content: top; align-items: top;"> 
+     <span class="loading-wave" style="
         font-size: 5.5rem; 
         background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%);
         -webkit-background-clip: text;
