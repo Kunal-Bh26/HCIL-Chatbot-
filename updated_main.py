@@ -855,7 +855,7 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
     </div>
     """, unsafe_allow_html=True)
 
-    if 
+    
     
     with st.form("chat_input_form", clear_on_submit=True):
         col1, col2 = st.columns([6, 1])
