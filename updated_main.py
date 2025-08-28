@@ -70,7 +70,8 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 }
 
 /* Animated Particles Background – RED */
-.stApp::before {
+/* CORRECTED Animated Particles Background – RED */
+[data-testid="stAppViewContainer"]::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -83,8 +84,9 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
   background-size: 160% 160%;
   animation: floatParticles 20s ease-in-out infinite;
   pointer-events: none;
-  z-index: 0; /* sits above .stApp’s background, below content */
+  z-index: -1; /* Added to ensure it stays in the background */
 }
+
 @keyframes floatParticles {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   33%       { transform: translate(-24px, -32px) rotate(120deg); }
