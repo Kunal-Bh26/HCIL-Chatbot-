@@ -687,7 +687,7 @@ for key, val in defaults.items():
 st.markdown("""
 <div style="display: flex; justify-content: center; align-items: center;">
     <span class="loading-wave" style="
-        font-size: 3.5rem; /* Resized for better alignment with the title */
+        font-size: 5.5rem; 
         background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         -webkit-background-clip: text;
         background-clip: text;
