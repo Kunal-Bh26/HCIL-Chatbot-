@@ -694,7 +694,7 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         color: transparent;
     ">🤖</span>
-    <h1 class='elegant-heading' style="margin-left: -1.2rem;">HCIL IT Helpdesk AI Assistant</h1> {/* This negative margin closes the gap */}
+    <h1 class='elegant-heading' style="margin-left: -1.2rem;">HCIL IT Helpdesk AI Assistant</h1> 
 </div>
 """, unsafe_allow_html=True)
 
