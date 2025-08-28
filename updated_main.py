@@ -85,12 +85,11 @@ body {
     }
 }
 
-/* This rule is NO LONGER NEEDED with the unified approach */
-/*
+
 .stApp {
-    background: #000000;
+    background: #000000 !important;
 }
-*/
+
 
 /* --- MAIN CONTAINER AND OTHER STYLES --- */
 .main {
