@@ -724,16 +724,16 @@ for key, val in defaults.items():
 
 # Main Title with Animation
 st.markdown("""
-<div style="display: flex; justify-content: top; align-items: top;">
+<div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
     <span class="loading-wave" style="
         font-size: 5.5rem; 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
     ">🤖</span>
-    <h1 class='elegant-heading' style="margin-right: -5.2rem;">IT Helpdesk AI Assistant</h1> 
+    <h1 class='elegant-heading'>IT Helpdesk AI Assistant</h1> 
 </div>
 """, unsafe_allow_html=True)
 
@@ -756,7 +756,7 @@ if not st.session_state.chat_started:
     # Start Chat Button
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        if st.button("Start Chat", key="start_chat_button"):
+        if st.button("Start Chat", key="start_chat_button", use_container_width=True):
             st.session_state.chat_started = True
             st.session_state.show_quick_replies = True
             welcome_messages = [
