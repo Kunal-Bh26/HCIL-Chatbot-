@@ -687,7 +687,7 @@ for key, val in defaults.items():
 # This is the corrected code
 st.markdown("""
 <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
-    <span class="loading-wave" style="font-size: 2.5rem;">🤖</span>
+    <span class="loading-wave" style="font-size: 3.5rem;">🤖</span>
     <h1 class='elegant-heading' style="margin-bottom: 2rem;">HCIL IT Helpdesk AI Assistant</h1>
 </div>
 """, unsafe_allow_html=True)
