@@ -686,9 +686,9 @@ for key, val in defaults.items():
 # Main Title with Animation
 # This is the corrected code
 st.markdown("""
-<div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
-    <span class="loading-wave" style="font-size: 5.0rem;">🤖</span>
-    <h1 class='elegant-heading' style="margin-bottom: 2rem;">HCIL IT Helpdesk AI Assistant</h1>
+<div style="display: flex; justify-content: center; align-items: center; gap: 2px;">
+    <span class="loading-wave" style="font-size: 5.5rem;">🤖</span>
+    <h1 class='elegant-heading' style="margin-top: 1rem;">HCIL IT Helpdesk AI Assistant</h1>
 </div>
 """, unsafe_allow_html=True)
 
