@@ -817,10 +817,9 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
 
     # Spacer when feedback request is shown
     if st.session_state.feedback_request:
-        st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
-
+        st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
         st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(229, 57, 53, 0.12), rgba(191, 18, 18, 0.12)); 
+        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
                     border-radius: 20px; padding: 0.8rem; margin: 1.0rem 0; 
                     border: 1px solid rgba(229, 57, 53, 0.3);">
             <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.5rem; margin-bottom: 0rem; text-align: center;">
