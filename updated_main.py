@@ -690,7 +690,7 @@ st.markdown("""
     <h1 style="display: inline-flex; align-items: center; justify-content: center; margin-top: 1rem; margin-bottom: 3rem;">
         
         <span class="loading-wave" style="
-            font-size: 5.5rem;
+            font-size: 3.5rem;
             line-height: 1;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
@@ -714,7 +714,7 @@ st.markdown("""
 
     </h1>
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True) # <-- This parameter is essential
 
 
 st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
