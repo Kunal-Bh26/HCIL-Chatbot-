@@ -52,7 +52,7 @@ st.markdown("""
 
 /* Global Reset and Dark Theme */
 html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
-    background: #000000 !important;
+    background: #000000;
     color: var(--text-primary) !important;
     font-family: 'Inter', sans-serif !important;
     overflow-x: hidden;
