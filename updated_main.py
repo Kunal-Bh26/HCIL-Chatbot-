@@ -686,7 +686,7 @@ for key, val in defaults.items():
 # Main Title with Animation
 # This is the corrected code
 st.markdown("""
-<div style="display: flex; justify-content: center; align-items: center; margin-top: -5rem;"> 
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 0rem;"> 
     <span class="loading-wave" style="
         font-size: 5.5rem;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
