@@ -56,26 +56,33 @@ body {
     color: var(--text-primary) !important;
 }
 
-/* Apply the animated background to the main container */
-[data-testid="stAppViewContainer"] {
-    background-image:
-        /* Particle layers */
-        radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.35) 0%, transparent 6%),
-        radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.35) 0%, transparent 7%),
-        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.35) 0%, transparent 5%),
-        radial-gradient(circle at 30% 80%, rgba(244, 63, 94, 0.28) 0%, transparent 6%),
-        radial-gradient(circle at 75% 40%, rgba(220, 38, 38, 0.28) 0%, transparent 7%),
-        /* Base background layer */
-        #000000;
-    
-    background-size: 160% 160%;
-    animation: floatParticles 20s ease-in-out infinite;
-    overflow-x: hidden;
-}
+/* FINAL VERSION: With Accessibility Check */
+@media (prefers-reduced-motion: no-preference) {
+    [data-testid="stAppViewContainer"] {
+        background-image:
+            /* Particle layers */
+            radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.35) 0%, transparent 6%),
+            radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.35) 0%, transparent 7%),
+            radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.35) 0%, transparent 5%),
+            radial-gradient(circle at 30% 80%, rgba(244, 63, 94, 0.28) 0%, transparent 6%),
+            radial-gradient(circle at 75% 40%, rgba(220, 38, 38, 0.28) 0%, transparent 7%),
+            /* Base background layer */
+            #000000;
+        
+        background-size: 160% 160%;
+        animation: floatParticles 20s ease-in-out infinite;
+    }
 
-@keyframes floatParticles {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
+    @keyframes floatParticles {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* You can also wrap other animations here */
+    @keyframes mainFadeIn {
+        from { opacity: 0; transform: translateY(30px) scale(0.95); }
+        to   { opacity: 1; transform: translateY(0)    scale(1);    }
+    }
 }
 
 /* This rule is NO LONGER NEEDED with the unified approach */
