@@ -686,16 +686,16 @@ for key, val in defaults.items():
 # Main Title with Animation
 # This is the corrected code
 st.markdown("""
-<div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;"> {/* Moved margin-top here, removed gap */}
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;"> 
     <span class="loading-wave" style="
-        font-size: 3.5rem; /* Adjusted size for better fit next to title */
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); /* Same gradient as title */
+        font-size: 5.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        color: transparent; /* Ensure it's transparent for the clip to work */
+        color: transparent;
     ">🤖</span>
-    <h1 class='elegant-heading' style="margin: 0;">HCIL IT Helpdesk AI Assistant</h1> {/* Removed margin-top, set margin to 0 */}
+    <h1 class='elegant-heading' style="margin: 0;">HCIL IT Helpdesk AI Assistant</h1>
 </div>
 """, unsafe_allow_html=True)
 
