@@ -887,8 +887,8 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
 
 # Footer
 st.markdown("""
-<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
-    <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.85rem;">
+<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.5); text-align: center;">
+    <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem;">
         Powered by Advanced AI | HCIL IT Support © 2025 ~ By Kunal Bhardwaj
     </p>
 </div>
