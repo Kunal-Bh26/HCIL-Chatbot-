@@ -447,7 +447,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 .transparent-spacer2 { height: 30px; background: transparent; }
 
 /* Hide Streamlit Elements */
-#MainMenu, footer, header { visibility: hidden; }
+footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
 
 /* Custom Animations */
