@@ -50,26 +50,13 @@ st.markdown("""
     --text-secondary: rgba(255, 255, 255, 0.8); /* softer gray-white */
 }
 
-/* Global Reset and Dark Theme */
-html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
-    background: #000000;
-    color: var(--text-primary) !important;
+/* --- UNIFIED BACKGROUND AND GLOBAL STYLES --- */
+body {
     font-family: 'Inter', sans-serif !important;
-    overflow-x: hidden;
+    color: var(--text-primary) !important;
 }
 
-/* Animated Background */
-.stApp {
-    background: 
-        radial-gradient(ellipse at top left, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(245, 87, 108, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at center, rgba(162, 89, 255, 0.1) 0%, transparent 60%),
-        #000000;
-    position: relative;
-    min-height: 100vh;
-}
-
-/* FINAL ATTEMPT: Animated Particles on Main Background */
+/* Apply the animated background to the main container */
 [data-testid="stAppViewContainer"] {
     background-image:
         /* Particle layers */
@@ -79,11 +66,11 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
         radial-gradient(circle at 30% 80%, rgba(244, 63, 94, 0.28) 0%, transparent 6%),
         radial-gradient(circle at 75% 40%, rgba(220, 38, 38, 0.28) 0%, transparent 7%),
         /* Base background layer */
-        radial-gradient(ellipse at center, rgba(162, 89, 255, 0.1) 0%, transparent 60%),
         #000000;
     
     background-size: 160% 160%;
     animation: floatParticles 20s ease-in-out infinite;
+    overflow-x: hidden;
 }
 
 @keyframes floatParticles {
@@ -91,28 +78,29 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
   50%      { background-position: 100% 50%; }
 }
 
+/* This rule is NO LONGER NEEDED with the unified approach */
+/*
+.stApp {
+    background: #000000;
+}
+*/
 
-/* Main Container with Glassmorphism */
+/* --- MAIN CONTAINER AND OTHER STYLES --- */
 .main {
-    /* subtle frosted glass panel on black */
     background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%) !important;
     backdrop-filter: blur(20px) saturate(200%);
     -webkit-backdrop-filter: blur(20px) saturate(200%);
-    border: 1px solid var(--glass-border);         /* uses your red-tinted border var */
+    border: 1px solid var(--glass-border);
     border-radius: 30px !important;
     padding: 2.5rem !important;
     max-width: 800px !important;
     margin: 2rem auto;
-
-    /* replaced purple glow with red glow */
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.3),
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 100px rgba(229, 57, 53, 0.12);         /* red ambient glow */
-
+        0 0 100px rgba(229, 57, 53, 0.12);
     position: relative;
     z-index: 1;
-    animation: mainFadeIn 1s ease-out;             /* smooth enter */
+    animation: mainFadeIn 1s ease-out;
 }
 
 @keyframes mainFadeIn {
