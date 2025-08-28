@@ -69,28 +69,26 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     min-height: 100vh;
 }
 
-/* Animated Particles Background – RED */
-/* CORRECTED Animated Particles Background – RED */
-[data-testid="stAppViewContainer"]::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.35) 0%, transparent 6%),
-    radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.35) 0%, transparent 7%),
-    radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.35) 0%, transparent 5%),
-    radial-gradient(circle at 30% 80%, rgba(244, 63, 94, 0.28) 0%, transparent 6%),
-    radial-gradient(circle at 75% 40%, rgba(220, 38, 38, 0.28) 0%, transparent 7%);
-  background-size: 160% 160%;
-  animation: floatParticles 20s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1; /* Added to ensure it stays in the background */
+/* FINAL ATTEMPT: Animated Particles on Main Background */
+[data-testid="stAppViewContainer"] {
+    background-image:
+        /* Particle layers */
+        radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.35) 0%, transparent 6%),
+        radial-gradient(circle at 60% 70%, rgba(191, 18, 18, 0.35) 0%, transparent 7%),
+        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.35) 0%, transparent 5%),
+        radial-gradient(circle at 30% 80%, rgba(244, 63, 94, 0.28) 0%, transparent 6%),
+        radial-gradient(circle at 75% 40%, rgba(220, 38, 38, 0.28) 0%, transparent 7%),
+        /* Base background layer */
+        radial-gradient(ellipse at center, rgba(162, 89, 255, 0.1) 0%, transparent 60%),
+        #000000;
+    
+    background-size: 160% 160%;
+    animation: floatParticles 20s ease-in-out infinite;
 }
 
 @keyframes floatParticles {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33%       { transform: translate(-24px, -32px) rotate(120deg); }
-  66%       { transform: translate(22px, -12px)  rotate(240deg); }
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 
 
