@@ -696,10 +696,8 @@ st.markdown("""
         color: transparent;
         margin-right: 0.5rem;
     ">🤖</span>
-    
     <h1 class='elegant-heading' style="margin: 0rem; display: inline-block;">
-        HCIL IT Helpdesk AI Assistant
-    </h1>
+        HCIL IT Helpdesk AI Assistant</h1>
 </div>
 """, unsafe_allow_html=True)
 
