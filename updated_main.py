@@ -501,7 +501,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 
 /* Spacer Divs */
 .transparent-spacer1 { height: 100px; background: transparent; }
-.transparent-spacer2 { height: 30px; background: transparent; }
+.transparent-spacer2 { height: 50px; background: transparent; }
 
 /* Hide Streamlit Elements */
 footer { visibility: hidden; }
@@ -817,7 +817,7 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
 
     # Spacer when feedback request is shown
     if st.session_state.feedback_request:
-        st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
         st.markdown("""
         <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
                     border-radius: 20px; padding: 0.8rem; margin: 1.0rem 0; 
@@ -851,9 +851,11 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
     
     # Modern Input Form
     st.markdown("""
-    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
     </div>
     """, unsafe_allow_html=True)
+
+    if 
     
     with st.form("chat_input_form", clear_on_submit=True):
         col1, col2 = st.columns([6, 1])
