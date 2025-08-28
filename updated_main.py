@@ -635,7 +635,7 @@ def show_typing():
 # Sidebar Configuration
 # -------------------------------
 with st.sidebar:
-    st.markdown('<div class="sidebar-title">HCIL<span class="status-indicator"></span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-title">HCIL</span></div>', unsafe_allow_html=True)
     
     # System Status
     st.markdown("""
@@ -674,7 +674,7 @@ defaults = {
     'messages': [],
     'chat_ended': False,
     'feedback_request': False,
-    'quick_replies': ["🔐 Reset Password", "🌐 VPN Issues", "💻 Software Install", "🔧 Hardware Problems"],
+    'quick_replies': ["Reset Password", "VPN Issues", "Software Install", "Hardware Problems"],
     'show_typing': False,
     'chat_started': False,
     'show_quick_replies': False
@@ -684,10 +684,12 @@ for key, val in defaults.items():
         st.session_state[key] = val
 
 # Main Title with Animation
+# This is the corrected code
 st.markdown("""
-<h1 class='elegant-heading'>
-    <span class="loading-wave">🚀</span> HCIL IT Helpdesk AI Assistant
-</h1>
+<div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+    <span class="loading-wave" style="font-size: 3.5rem;">🚀</span>
+    <h1 class='elegant-heading' style="margin-bottom: 2rem;">HCIL IT Helpdesk AI Assistant</h1>
+</div>
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
