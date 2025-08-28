@@ -686,17 +686,33 @@ for key, val in defaults.items():
 # Main Title with Animation
 # This is the corrected code
 st.markdown("""
-<div style="display: flex; align-items: top; justify-content: flex-end; margin-top: 0rem;"> 
-    <span class="loading-wave" style="
-        font-size: 5.5rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-    ">🤖</span>
-    <h1 class='elegant-heading' style="margin: 0rem; display: inline-block;">
-        HCIL IT Helpdesk AI Assistant</h1>
+<div style="text-align: center;">
+    <h1 style="display: inline-flex; align-items: center; justify-content: center; margin-top: 1rem; margin-bottom: 3rem;">
+        
+        <span class="loading-wave" style="
+            font-size: 5.5rem;
+            line-height: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        ">🤖</span>
+
+        <span style="
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        ">HCIL IT Helpdesk AI Assistant</span>
+
+    </h1>
 </div>
 """, unsafe_allow_html=True)
 
