@@ -845,7 +845,7 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
     
     # Modern Input Form
     st.markdown("""
-    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem;">
     </div>
     """, unsafe_allow_html=True)
 
