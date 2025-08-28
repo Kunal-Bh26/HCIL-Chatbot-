@@ -694,15 +694,15 @@ st.markdown("""
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
-        margin-right: 0.5rem; /* space between emoji and text */
+        margin-right: 0.5rem;
     ">🤖</span>
     
     <h1 class='elegant-heading' style="margin: 0rem; display: inline-block;">
         HCIL IT Helpdesk AI Assistant
     </h1>
 </div>
-
 """, unsafe_allow_html=True)
+
 
 st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
 
