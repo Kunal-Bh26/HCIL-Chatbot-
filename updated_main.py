@@ -138,13 +138,15 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 /* Elite Title with Neon Effect – Red + Fixed Top */
 .sidebar-title {
     position: sticky;             /* stick to its container while scrolling */
-    top: 0;                       /* pin to top of sidebar */
-    z-index: 10;                  /* stay above sidebar content */
-
+    top: 0 !important;                       /* pin to top of sidebar */
+    z-index: 5;                  /* stay above sidebar content */
+    margin-bottom: 1rem; 
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 4rem;
     font-weight: 900;
     text-align: center;
-    margin: 1.5rem 0;
+    margin: 0.7rem 0;
     
     /* red animated gradient */
     background: linear-gradient(45deg, #b71c1c, #e53935, #ef4444, #f87171);
@@ -813,16 +815,14 @@ else:
 # -------------------------------
 if st.session_state.chat_started and not st.session_state.chat_ended:
 
-        # Spacer for better layout
-    if not st.session_state.feedback_request and not st.session_state.show_quick_replies:
-        st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
-        
-    # Feedback Section with Premium Design
+    # Spacer when feedback request is shown
     if st.session_state.feedback_request:
+        st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
+
         st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
+        <div style="background: linear-gradient(135deg, rgba(229, 57, 53, 0.12), rgba(191, 18, 18, 0.12)); 
                     border-radius: 20px; padding: 0.8rem; margin: 1.0rem 0; 
-                    border: 1px solid rgba(255, 255, 255, 0.1);">
+                    border: 1px solid rgba(229, 57, 53, 0.3);">
             <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.5rem; margin-bottom: 0rem; text-align: center;">
                 ✨ Was this response helpful?
             </p>
