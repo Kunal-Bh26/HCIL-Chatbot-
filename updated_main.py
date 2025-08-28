@@ -13,25 +13,21 @@ from datetime import datetime
 # --- Configuration for Pre-loaded Knowledge Base ---
 KNOWLEDGE_BASE_PATH = 'dataset.xlsx'
 
-# Advanced CSS with Elite-Level UI Features - Red Theme
+# Advanced CSS with Elite-Level UI Features
 st.markdown("""
 <style>
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
-/* CSS Variables for Red Theme */
+/* CSS Variables for Theme */
 :root {
-    --primary-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-    --secondary-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-    --accent-gradient: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.18);
-    --neon-glow: 0 0 20px rgba(220, 38, 38, 0.5);
+    --neon-glow: 0 0 20px rgba(102, 126, 234, 0.5);
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.8);
-    --red-soft: rgba(220, 38, 38, 0.1);
-    --red-medium: rgba(220, 38, 38, 0.3);
-    --red-strong: rgba(220, 38, 38, 0.6);
 }
 
 /* Global Reset and Dark Theme */
@@ -42,38 +38,12 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     overflow-x: hidden;
 }
 
-/* Sidebar Toggle Button - Fixed Position */
-.sidebar-toggle {
-    position: fixed !important;
-    top: 1rem !important;
-    left: 1rem !important;
-    z-index: 9999 !important;
-    background: var(--primary-gradient) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 1.2rem !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4) !important;
-    transition: all 0.3s ease !important;
-}
-
-.sidebar-toggle:hover {
-    transform: scale(1.1) !important;
-    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6) !important;
-}
-
 /* Animated Background */
 .stApp {
     background: 
-        radial-gradient(ellipse at top left, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(185, 28, 28, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at center, rgba(239, 68, 68, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at top left, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(245, 87, 108, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at center, rgba(162, 89, 255, 0.1) 0%, transparent 60%),
         #000000 !important;
     position: relative;
     min-height: 100vh;
@@ -88,9 +58,9 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.3) 0%, transparent 2%),
-        radial-gradient(circle at 60% 70%, rgba(185, 28, 28, 0.3) 0%, transparent 2%),
-        radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.3) 0%, transparent 2%);
+        radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.3) 0%, transparent 2%),
+        radial-gradient(circle at 60% 70%, rgba(245, 87, 108, 0.3) 0%, transparent 2%),
+        radial-gradient(circle at 80% 20%, rgba(162, 89, 255, 0.3) 0%, transparent 2%);
     background-size: 200% 200%;
     animation: floatParticles 20s ease-in-out infinite;
     pointer-events: none;
@@ -113,11 +83,10 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     padding: 2.5rem !important;
     max-width: 800px !important;
     margin: 2rem auto;
-    margin-bottom: 120px !important; /* Space for fixed input */
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 100px var(--red-soft);
+        0 0 100px rgba(102, 126, 234, 0.1);
     position: relative;
     z-index: 1;
     animation: mainFadeIn 1s ease-out;
@@ -142,19 +111,19 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Elite Title with Neon Effect - Red Theme */
+/* Elite Title with Neon Effect */
 .sidebar-title {
     font-size: 4rem;
     font-weight: 900;
     text-align: center;
     margin: 1.5rem 0;
-    background: linear-gradient(45deg, #dc2626, #991b1b, #ef4444, #b91c1c);
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradientShift 3s ease infinite;
-    filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.5));
+    filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.5));
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -165,13 +134,13 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     100% { background-position: 0% 50%; }
 }
 
-/* Main Title Enhancement - Red Theme */
+/* Main Title Enhancement */
 .elegant-heading {
     font-size: 3.5rem !important;
     font-weight: 800;
     text-align: center;
     margin: 2rem 0 3rem 0 !important;
-    background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #ef4444 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -180,28 +149,16 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     letter-spacing: -0.02em;
 }
 
-/* Fix for emoji visibility */
-.elegant-heading::before {
-    content: '🚀 ';
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
-    background-clip: unset !important;
-    color: #ffffff !important;
-    font-size: 3.5rem;
-    margin-right: 0.2em;
-}
-
 @keyframes titlePulse {
     0%, 100% { 
-        filter: brightness(1) drop-shadow(0 0 20px rgba(220, 38, 38, 0.5)); 
+        filter: brightness(1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.5)); 
     }
     50% { 
-        filter: brightness(1.2) drop-shadow(0 0 40px rgba(220, 38, 38, 0.8)); 
+        filter: brightness(1.2) drop-shadow(0 0 40px rgba(102, 126, 234, 0.8)); 
     }
 }
 
-/* Start Chat Button - Premium Design - Red Theme */
+/* Start Chat Button - Premium Design */
 .start-chat-btn {
     background: var(--primary-gradient) !important;
     color: white !important;
@@ -216,7 +173,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     box-shadow: 
-        0 10px 30px var(--red-medium),
+        0 10px 30px rgba(102, 126, 234, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -236,7 +193,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 .start-chat-btn:hover {
     transform: translateY(-3px) scale(1.05) !important;
     box-shadow: 
-        0 20px 40px var(--red-strong),
+        0 20px 40px rgba(102, 126, 234, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -270,11 +227,11 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 }
 
 .user-bubble {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
     color: white;
     margin-left: auto;
     box-shadow: 
-        0 8px 24px var(--red-medium),
+        0 8px 24px rgba(102, 126, 234, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -294,7 +251,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     transform: translateX(2px);
 }
 
-/* Avatar Design - Red Theme */
+/* Avatar Design */
 .avatar {
     width: 45px;
     height: 45px;
@@ -315,14 +272,14 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 }
 
 .bot-avatar {
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     border: 2px solid rgba(255, 255, 255, 0.2);
     animation: avatarRotate 3s linear infinite;
 }
 
 @keyframes avatarPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
 }
 
 @keyframes avatarRotate {
@@ -330,31 +287,24 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     to { transform: rotate(360deg); }
 }
 
-/* Quick Reply Buttons - Vertical Stack */
-.quick-reply-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.quick-reply-stack .stButton > button {
+/* Quick Reply & Feedback Buttons */
+.quick-reply-buttons .stButton > button,
+.feedback-buttons .stButton > button {
     background: rgba(255, 255, 255, 0.05) !important;
     color: var(--text-primary) !important;
-    border: 1px solid rgba(220, 38, 38, 0.3) !important;
-    border-radius: 15px !important;
-    padding: 1rem 1.5rem !important;
-    width: 100% !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50px !important;
+    padding: 0.6rem 1.5rem !important;
+    margin: 0.3rem !important;
     font-weight: 500 !important;
     backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     position: relative;
     overflow: hidden;
-    text-align: left !important;
 }
 
-.quick-reply-stack .stButton > button::before {
+.quick-reply-buttons .stButton > button::before,
+.feedback-buttons .stButton > button::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -368,143 +318,51 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     z-index: -1;
 }
 
-.quick-reply-stack .stButton > button:hover {
-    transform: translateX(5px) scale(1.02) !important;
-    box-shadow: 0 8px 20px var(--red-medium) !important;
-    border-color: rgba(220, 38, 38, 0.6) !important;
-}
-
-.quick-reply-stack .stButton > button:hover::before {
-    width: 400px;
-    height: 400px;
-}
-
-/* Feedback Buttons - Improved Layout */
-.feedback-section {
-    background: linear-gradient(135deg, var(--red-soft), rgba(185, 28, 28, 0.1));
-    border-radius: 20px;
-    padding: 1.5rem;
-    margin: 1rem 0 0.5rem 0;
-    border: 1px solid rgba(220, 38, 38, 0.2);
-}
-
-.feedback-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-
-.feedback-buttons .stButton > button {
-    background: rgba(255, 255, 255, 0.05) !important;
-    color: var(--text-primary) !important;
-    border: 1px solid rgba(220, 38, 38, 0.3) !important;
-    border-radius: 12px !important;
-    padding: 0.8rem !important;
-    font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    position: relative;
-    overflow: hidden;
-    height: 60px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
+.quick-reply-buttons .stButton > button:hover,
 .feedback-buttons .stButton > button:hover {
     transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 8px 20px var(--red-medium) !important;
-    border-color: rgba(220, 38, 38, 0.6) !important;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+    border-color: rgba(102, 126, 234, 0.5) !important;
 }
 
-/* Fixed Input Bar - ChatGPT/Claude Style */
-.fixed-input-container {
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.95) 100%) !important;
-    backdrop-filter: blur(20px) !important;
-    padding: 1.5rem 2rem 2rem 2rem !important;
-    z-index: 1000 !important;
-    border-top: 1px solid rgba(220, 38, 38, 0.2) !important;
+.quick-reply-buttons .stButton > button:hover::before,
+.feedback-buttons .stButton > button:hover::before {
+    width: 200px;
+    height: 200px;
 }
 
-.modern-input {
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    background: rgba(20, 20, 20, 0.9) !important;
-    border: 1px solid rgba(220, 38, 38, 0.3) !important;
-    border-radius: 25px !important;
-    padding: 0 !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(220, 38, 38, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-.modern-input:focus-within {
-    border-color: rgba(220, 38, 38, 0.6) !important;
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.7),
-        0 0 0 2px rgba(220, 38, 38, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-}
-
-/* Override Streamlit input styling */
+/* Input Field - Modern Design */
 .stTextInput > div > div > input {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px !important;
     color: var(--text-primary) !important;
-    padding: 1.2rem 1.5rem !important;
-    font-size: 1.1rem !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.stTextInput > div > div > input::placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-    font-style: italic;
+    padding: 0.8rem 1.2rem !important;
+    font-size: 1rem !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease !important;
 }
 
 .stTextInput > div > div > input:focus {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    border-color: rgba(102, 126, 234, 0.5) !important;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* Send Button - Modern Style */
-.send-button {
-    position: absolute !important;
-    right: 8px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+/* Send Button */
+.stButton > button[kind="secondary"] {
     background: var(--primary-gradient) !important;
     color: white !important;
     border: none !important;
-    border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 1.1rem !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 12px var(--red-medium) !important;
+    border-radius: 12px !important;
+    padding: 0.8rem 1.2rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.send-button:hover {
-    transform: translateY(-50%) scale(1.1) !important;
-    box-shadow: 0 6px 16px var(--red-strong) !important;
+.stButton > button[kind="secondary"]:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5) !important;
 }
 
 /* Typing Indicator - Premium Animation */
@@ -526,7 +384,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     background: var(--primary-gradient);
     border-radius: 50%;
     animation: typingPulse 1.4s infinite ease-in-out;
-    box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
 }
 
 .typing-dots span:nth-child(1) { animation-delay: 0s; }
@@ -553,7 +411,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     color: var(--text-primary) !important;
 }
 
-/* Scrollbar Styling - Red Theme */
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -565,12 +423,12 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-gradient);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7));
 }
 
 /* Loading Animation */
@@ -586,26 +444,21 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 
 /* Spacer Divs */
 .transparent-spacer1 { height: 50px; background: transparent; }
-.transparent-spacer2 { height: 20px; background: transparent; }
+.transparent-spacer2 { height: 30px; background: transparent; }
 
 /* Hide Streamlit Elements */
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
 
-/* Status Indicator - Red Theme */
-.status-indicator {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #ef4444;
-    border-radius: 50%;
-    animation: statusPulse 2s ease-in-out infinite;
-    margin-left: 8px;
+/* Custom Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
-@keyframes statusPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
 }
 
 /* Responsive Design */
@@ -614,14 +467,28 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     .sidebar-title { font-size: 3rem; }
     .chat-bubble { max-width: 85%; }
     .main { padding: 1.5rem !important; margin: 1rem !important; }
-    .feedback-buttons { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
-    .fixed-input-container { padding: 1rem !important; }
 }
 
 /* Performance Optimizations */
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+    margin-left: 8px;
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -765,55 +632,6 @@ def show_typing():
     """, unsafe_allow_html=True)
 
 # -------------------------------
-# Session State Initialization
-# -------------------------------
-defaults = {
-    'knowledge_base_loaded': False,
-    'messages': [],
-    'chat_ended': False,
-    'feedback_request': False,
-    'quick_replies': ["🔐 Reset Password", "🌐 VPN Issues", "💻 Software Install", "🔧 Hardware Problems"],
-    'show_typing': False,
-    'chat_started': False,
-    'show_quick_replies': False,
-    'sidebar_collapsed': False
-}
-for key, val in defaults.items():
-    if key not in st.session_state:
-        st.session_state[key] = val
-
-# -------------------------------
-# Sidebar Toggle Button
-# -------------------------------
-st.markdown("""
-<button class="sidebar-toggle" onclick="toggleSidebar()" id="sidebarToggle">
-    ☰
-</button>
-
-<script>
-function toggleSidebar() {
-    const sidebar = document.querySelector('[data-testid="stSidebar"]');
-    const toggle = document.getElementById('sidebarToggle');
-    if (sidebar.style.marginLeft === '-21rem' || sidebar.style.marginLeft === '') {
-        sidebar.style.marginLeft = '0';
-        toggle.innerHTML = '✕';
-    } else {
-        sidebar.style.marginLeft = '-21rem';
-        toggle.innerHTML = '☰';
-    }
-}
-
-// Initialize sidebar state
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.querySelector('[data-testid="stSidebar"]');
-    if (sidebar) {
-        sidebar.style.transition = 'margin-left 0.3s ease';
-    }
-});
-</script>
-""", unsafe_allow_html=True)
-
-# -------------------------------
 # Sidebar Configuration
 # -------------------------------
 with st.sidebar:
@@ -822,7 +640,7 @@ with st.sidebar:
     # System Status
     st.markdown("""
     <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(255, 255, 255, 0.1);">
-        <h4 style="color: #ef4444; margin: 0;">🟢 System Online</h4>
+        <h4 style="color: #4ade80; margin: 0;">🟢 System Online</h4>
         <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin: 0.5rem 0 0 0;">AI Assistant Ready</p>
     </div>
     """, unsafe_allow_html=True)
@@ -831,7 +649,7 @@ with st.sidebar:
     if 'messages' in st.session_state and len(st.session_state.messages) > 0:
         msg_count = len([m for m in st.session_state.messages if m['role'] == 'user'])
         st.markdown(f"""
-        <div style="background: rgba(220, 38, 38, 0.1); border-radius: 12px; padding: 0.8rem; margin: 1rem 0; border: 1px solid rgba(220, 38, 38, 0.3);">
+        <div style="background: rgba(102, 126, 234, 0.1); border-radius: 12px; padding: 0.8rem; margin: 1rem 0; border: 1px solid rgba(102, 126, 234, 0.3);">
             <p style="margin: 0; font-size: 0.9rem;">💬 Messages: {msg_count}</p>
             <p style="margin: 0; font-size: 0.9rem;">⚡ Response Time: ~1.2s</p>
         </div>
@@ -848,11 +666,28 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# Main Title with Animation - Fixed emoji display
+# -------------------------------
+# Session State Initialization
+# -------------------------------
+defaults = {
+    'knowledge_base_loaded': False,
+    'messages': [],
+    'chat_ended': False,
+    'feedback_request': False,
+    'quick_replies': ["🔐 Reset Password", "🌐 VPN Issues", "💻 Software Install", "🔧 Hardware Problems"],
+    'show_typing': False,
+    'chat_started': False,
+    'show_quick_replies': False
+}
+for key, val in defaults.items():
+    if key not in st.session_state:
+        st.session_state[key] = val
+
+# Main Title with Animation
 st.markdown("""
-<div class='elegant-heading'>
-    HCIL IT Helpdesk AI Assistant
-</div>
+<h1 class='elegant-heading'>
+    <span class="loading-wave">🚀</span> HCIL IT Helpdesk AI Assistant
+</h1>
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
@@ -902,24 +737,26 @@ else:
         if st.session_state.show_typing:
             show_typing()
 
-        # Quick Replies with Vertical Stack Design
+        # Quick Replies with Enhanced Design
         if st.session_state.show_quick_replies:
             st.markdown("""
             <div style="margin: 1.5rem 0;">
-                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 1rem; text-align: center;">
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 0.8rem;">
                     💡 Quick Actions:
                 </p>
             </div>
             """, unsafe_allow_html=True)
             
-            st.markdown('<div class="quick-reply-stack">', unsafe_allow_html=True)
-            for idx, reply in enumerate(st.session_state.quick_replies):
-                if st.button(reply, key=f"quick_{idx}", use_container_width=True):
-                    clean_reply = reply.split(' ', 1)[1] if ' ' in reply else reply
-                    st.session_state.messages.append({"role": "user", "content": clean_reply})
-                    st.session_state.show_typing = True
-                    st.session_state.show_quick_replies = False
-                    st.rerun()
+            st.markdown('<div class="quick-reply-buttons">', unsafe_allow_html=True)
+            cols = st.columns(len(st.session_state.quick_replies))
+            for idx, (col, reply) in enumerate(zip(cols, st.session_state.quick_replies)):
+                with col:
+                    if st.button(reply, key=f"quick_{idx}", use_container_width=True):
+                        clean_reply = reply.split(' ', 1)[1] if ' ' in reply else reply
+                        st.session_state.messages.append({"role": "user", "content": clean_reply})
+                        st.session_state.show_typing = True
+                        st.session_state.show_quick_replies = False
+                        st.rerun()
             st.markdown('</div>', unsafe_allow_html=True)
 
         # Process typing animation
@@ -933,51 +770,56 @@ else:
                 st.session_state.show_typing = False
                 st.rerun()
     else:
-        st.info("📄 Loading AI Knowledge Base...")
+        st.info("🔄 Loading AI Knowledge Base...")
 
 # -------------------------------
-# Feedback Section
+# Input Bar + Feedback Section
 # -------------------------------
-if st.session_state.chat_started and not st.session_state.chat_ended and st.session_state.feedback_request:
+if st.session_state.chat_started and not st.session_state.chat_ended:
+    # Feedback Section with Premium Design
+    if st.session_state.feedback_request:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
+                    border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0; 
+                    border: 1px solid rgba(255, 255, 255, 0.1);">
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; margin-bottom: 1rem; text-align: center;">
+                ✨ Was this response helpful?
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown('<div class="feedback-buttons">', unsafe_allow_html=True)
+        col1, col2, col3, col4, col5 = st.columns(5)
+        
+        feedback_options = [
+            ("😊 Perfect", "Excellent! I'm here if you need anything else! ✨"),
+            ("👍 Good", "Great! Feel free to ask more questions! 🚀"),
+            ("🤔 Unclear", "Let me try to explain differently. Could you provide more details? 💭"),
+            ("👎 Not Helpful", "I apologize. Let me connect you with better resources. 🔄"),
+            ("💬 More Help", "Sure! What else would you like to know? 💡")
+        ]
+        
+        for col, (btn_text, response) in zip([col1, col2, col3, col4, col5], feedback_options):
+            with col:
+                if st.button(btn_text, use_container_width=True):
+                    st.session_state.messages.append({"role": "bot", "content": response})
+                    st.session_state.feedback_request = False
+                    st.rerun()
+        
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # Spacer for better layout
+    if not st.session_state.feedback_request and not st.session_state.show_quick_replies:
+        st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
+    
+    # Modern Input Form
     st.markdown("""
-    <div class="feedback-section">
-        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; margin: 0; text-align: center;">
-            ✨ Was this response helpful?
-        </p>
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="feedback-buttons">', unsafe_allow_html=True)
-    col1, col2, col3, col4 = st.columns(4)
-    
-    feedback_options = [
-        ("😊 Perfect", "Excellent! I'm here if you need anything else! ✨"),
-        ("👍 Good", "Great! Feel free to ask more questions! 🚀"),
-        ("🤔 Unclear", "Let me try to explain differently. Could you provide more details? 💭"),
-        ("👎 Not Helpful", "I apologize. Let me connect you with better resources. 🔄")
-    ]
-    
-    for col, (btn_text, response) in zip([col1, col2, col3, col4], feedback_options):
-        with col:
-            if st.button(btn_text, key=f"feedback_{btn_text}", use_container_width=True):
-                st.session_state.messages.append({"role": "bot", "content": response})
-                st.session_state.feedback_request = False
-                st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('<div class="transparent-spacer2"></div>', unsafe_allow_html=True)
-
-# -------------------------------
-# Fixed Input Bar - Modern Design
-# -------------------------------
-if st.session_state.chat_started and not st.session_state.chat_ended:
-    st.markdown("""
-    <div class="fixed-input-container">
-        <div class="modern-input">
-    """, unsafe_allow_html=True)
-    
     with st.form("chat_input_form", clear_on_submit=True):
-        col1, col2 = st.columns([10, 1])
+        col1, col2 = st.columns([6, 1])
         with col1:
             user_input = st.text_input(
                 "user_input", 
@@ -986,7 +828,7 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
                 label_visibility="collapsed"
             )
         with col2:
-            send_clicked = st.form_submit_button("📤", use_container_width=True, help="Send message")
+            send_clicked = st.form_submit_button("Send 📤", use_container_width=True)
         
         if send_clicked and user_input.strip():
             user_input_clean = user_input.lower().strip()
@@ -1009,11 +851,6 @@ if st.session_state.chat_started and not st.session_state.chat_ended:
                 st.session_state.show_typing = True
                 st.session_state.show_quick_replies = False
             st.rerun()
-    
-    st.markdown("""
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
