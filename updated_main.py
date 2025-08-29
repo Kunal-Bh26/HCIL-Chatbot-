@@ -719,7 +719,7 @@ for key, val in defaults.items():
         st.session_state[key] = val
 
 # Main Title with Animation
-st.markdown(""" <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;"> <span class="loading-wave" style=" font-size: 5.5rem; background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; ">🤖</span> <h1 class='elegant-heading' style="margin-right: -5.2rem;">HCIL IT Helpdesk AI Assistant</h1> </div> """, unsafe_allow_html=True)
+st.markdown(""" <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;"> <span class="loading-wave" style=" font-size: 7.5rem; background: linear-gradient(135deg, #b71c1c 0%, #e53935 50%, #f87171 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; ">🤖</span> <h1 class='elegant-heading' style="margin-right: -5.2rem;">HCIL IT Helpdesk AI Assistant</h1> </div> """, unsafe_allow_html=True)
 
 
 st.markdown('<div class="transparent-spacer1"></div>', unsafe_allow_html=True)
