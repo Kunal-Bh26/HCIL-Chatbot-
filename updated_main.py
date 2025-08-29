@@ -773,7 +773,7 @@ else:
         if st.session_state.show_quick_replies:
             st.markdown("""
             <div style="margin: 1.5rem 0;">
-                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 0.8rem;">
+                <p style="color: rgba(255, 255, 255, 1.0); font-size: 1.0rem; margin-bottom: 0.4rem;">
                     Quick Actions:
                 </p>
             </div>
